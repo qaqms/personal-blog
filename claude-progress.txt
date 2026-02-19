@@ -1,7 +1,7 @@
 # Project Progress
-## Status: READY
+## Status: IN_PROGRESS
 ## Last Updated: 2026-02-20
-## Completed Features: 0 / 15
-## Current Focus: Setup
-## Notes: Initial setup complete. Feature list created with 15 features.
-## Next Steps: F001 - Next.js project initialization
+## Completed Features: 1 / 15
+## Current Focus: F001
+## Notes: Next.js project initialized with TypeScript, Tailwind CSS, ESLint, Prettier. Directory structure created. Build and lint tests passed.
+## Next Steps: F002 - Hero section with avatar and animations

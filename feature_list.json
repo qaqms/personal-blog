@@ -1,7 +1,7 @@
 {
   "features": [
     {
-      "id": "F001",
+"id": "F001",
       "category": "core",
       "description": "Next.js 项目初始化与基础配置",
       "steps": [
@@ -12,7 +12,7 @@
         "创建基础目录结构"
       ],
       "priority": "high",
-      "passes": false
+      "passes": true
     },
     {
       "id": "F002",
