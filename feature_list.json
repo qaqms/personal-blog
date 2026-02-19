@@ -1,0 +1,201 @@
+{
+  "features": [
+    {
+      "id": "F001",
+      "category": "core",
+      "description": "Next.js 项目初始化与基础配置",
+      "steps": [
+        "创建 Next.js 14 项目 (App Router)",
+        "配置 TypeScript",
+        "配置 Tailwind CSS",
+        "配置 ESLint 和 Prettier",
+        "创建基础目录结构"
+      ],
+      "priority": "high",
+      "passes": false
+    },
+    {
+      "id": "F002",
+      "category": "ui",
+      "description": "首页 Hero 区域 - 个人介绍与头像动画",
+      "steps": [
+        "创建 Hero 组件，包含头像圆形展示",
+        "添加名字和身份标签动画",
+        "社交媒体链接图标",
+        "响应式布局适配"
+      ],
+      "priority": "high",
+      "passes": false
+    },
+    {
+      "id": "F003",
+      "category": "ui",
+      "description": "导航栏与页面路由",
+      "steps": [
+        "创建顶部/侧边导航栏",
+        "实现页面区块导航（锚点滚动）",
+        "移动端菜单适配",
+        "导航高亮状态"
+      ],
+      "priority": "high",
+      "passes": false
+    },
+    {
+      "id": "F004",
+      "category": "ui",
+      "description": "关于我/技能展示区块",
+      "steps": [
+        "技能条进度展示组件",
+        "技术栈图标展示",
+        "个人简介文字区域",
+        "动画效果"
+      ],
+      "priority": "high",
+      "passes": false
+    },
+    {
+      "id": "F005",
+      "category": "core",
+      "description": "文章系统 - Markdown 支持",
+      "steps": [
+        "配置 MDX/Markdown 解析",
+        "创建文章目录结构",
+        "文章列表页面",
+        "文章详情页面",
+        "代码高亮支持"
+      ],
+      "priority": "high",
+      "passes": false
+    },
+    {
+      "id": "F006",
+      "category": "ui",
+      "description": "文章分类与标签系统",
+      "steps": [
+        "分类页面",
+        "标签页面",
+        "分类/标签筛选功能",
+        "文章卡片组件"
+      ],
+      "priority": "medium",
+      "passes": false
+    },
+    {
+      "id": "F007",
+      "category": "ui",
+      "description": "作品集/项目展示区块",
+      "steps": [
+        "项目卡片组件",
+        "项目详情弹窗/页面",
+        "图片画廊效果",
+        "外链展示"
+      ],
+      "priority": "medium",
+      "passes": false
+    },
+    {
+      "id": "F008",
+      "category": "ui",
+      "description": "统计数据与足迹地图区块",
+      "steps": [
+        "统计数据卡片（阅读量、文章数等）",
+        "足迹地图组件",
+        "数据可视化"
+      ],
+      "priority": "low",
+      "passes": false
+    },
+    {
+      "id": "F009",
+      "category": "api",
+      "description": "后台管理 - 基础架构",
+      "steps": [
+        "创建 /admin 路由",
+        "管理后台布局",
+        "登录/认证系统",
+        "权限控制"
+      ],
+      "priority": "high",
+      "passes": false
+    },
+    {
+      "id": "F010",
+      "category": "api",
+      "description": "后台管理 - 文章编辑器",
+      "steps": [
+        "Markdown 编辑器集成",
+        "文章创建/编辑表单",
+        "文章列表管理",
+        "图片上传功能",
+        "草稿/发布状态"
+      ],
+      "priority": "high",
+      "passes": false
+    },
+    {
+      "id": "F011",
+      "category": "core",
+      "description": "数据持久化 - 本地JSON/API",
+      "steps": [
+        "创建数据存储方案",
+        "文章元数据管理",
+        "项目数据管理",
+        "配置文件系统"
+      ],
+      "priority": "high",
+      "passes": false
+    },
+    {
+      "id": "F012",
+      "category": "ui",
+      "description": "主题切换与暗色模式",
+      "steps": [
+        "实现深色/浅色主题切换",
+        "主题状态持久化",
+        "全局主题变量",
+        "动画过渡效果"
+      ],
+      "priority": "medium",
+      "passes": false
+    },
+    {
+      "id": "F013",
+      "category": "ui",
+      "description": "SEO 与性能优化",
+      "steps": [
+        "配置 metadata",
+        "生成 sitemap",
+        "图片优化",
+        "页面性能优化"
+      ],
+      "priority": "medium",
+      "passes": false
+    },
+    {
+      "id": "F014",
+      "category": "ui",
+      "description": "动画与交互效果增强",
+      "steps": [
+        "滚动触发动画",
+        "页面过渡动画",
+        "悬停效果",
+        "加载动画"
+      ],
+      "priority": "low",
+      "passes": false
+    },
+    {
+      "id": "F015",
+      "category": "core",
+      "description": "部署配置",
+      "steps": [
+        "配置 Vercel/其他平台部署",
+        "环境变量配置",
+        "构建优化",
+        "部署测试"
+      ],
+      "priority": "medium",
+      "passes": false
+    }
+  ]
+}
