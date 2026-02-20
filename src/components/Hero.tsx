@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Marquee } from '@/components/magicui/marquee'
 import { AnimatedGradientText } from '@/components/magicui/animated-gradient-text'
 import { Meteors } from '@/components/magicui/meteors'
+import { OrbitingCircles } from '@/components/magicui/orbiting-circles'
 
 const roles = ['全栈开发者', '前端工程师', '开源爱好者', '技术博主']
 
@@ -54,6 +55,17 @@ const socialLinks = [
       </svg>
     ),
   },
+]
+
+const orbitingTechIcons = [
+  { name: 'React', icon: '⚛️' },
+  { name: 'Next.js', icon: '▲' },
+  { name: 'TypeScript', icon: '📘' },
+  { name: 'Node.js', icon: '🟢' },
+  { name: 'Python', icon: '🐍' },
+  { name: 'Tailwind', icon: '🎨' },
+  { name: 'Docker', icon: '🐳' },
+  { name: 'Git', icon: '📦' },
 ]
 
 const techStack = [
@@ -132,22 +144,46 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 flex flex-col items-center gap-8 max-w-3xl mx-auto text-center">
-        <div className="relative">
-          <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-1 animate-pulse">
-            <div className="w-full h-full rounded-full bg-white dark:bg-zinc-900 flex items-center justify-center overflow-hidden">
-              <AnimatedGradientText
-                className="text-4xl md:text-5xl font-bold"
-                colorFrom="#3b82f6"
-                colorTo="#a855f7"
+        <div className="relative h-[350px] w-[350px] md:h-[400px] md:w-[400px] flex items-center justify-center">
+          <OrbitingCircles radius={150} duration={25} delay={0} iconSize={40} speed={0.8}>
+            {orbitingTechIcons.slice(0, 4).map((tech) => (
+              <div
+                key={tech.name}
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-zinc-800 shadow-lg border border-zinc-200 dark:border-zinc-700"
               >
-                QAQ
-              </AnimatedGradientText>
+                <span className="text-xl">{tech.icon}</span>
+              </div>
+            ))}
+          </OrbitingCircles>
+
+          <OrbitingCircles radius={100} duration={20} delay={5} iconSize={35} reverse speed={0.6}>
+            {orbitingTechIcons.slice(4, 8).map((tech) => (
+              <div
+                key={tech.name}
+                className="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 shadow-lg"
+              >
+                <span className="text-lg">{tech.icon}</span>
+              </div>
+            ))}
+          </OrbitingCircles>
+
+          <div className="relative z-20">
+            <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-1 animate-pulse">
+              <div className="w-full h-full rounded-full bg-white dark:bg-zinc-900 flex items-center justify-center overflow-hidden">
+                <AnimatedGradientText
+                  className="text-3xl md:text-4xl font-bold"
+                  colorFrom="#3b82f6"
+                  colorTo="#a855f7"
+                >
+                  QAQ
+                </AnimatedGradientText>
+              </div>
             </div>
+            <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-3 border-white dark:border-zinc-900 animate-pulse"></div>
           </div>
-          <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white dark:border-zinc-900 animate-pulse"></div>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 -mt-8">
           <p className="text-zinc-500 dark:text-zinc-400 text-sm uppercase tracking-wider">
             你好，我是
           </p>
