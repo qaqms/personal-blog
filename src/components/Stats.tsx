@@ -162,73 +162,148 @@ export default function Stats() {
 
 function WorldMap() {
   return (
-    <svg viewBox="0 0 800 400" className="w-full h-auto opacity-80 dark:opacity-60">
-      <defs>
-        <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#3b82f6" />
-          <stop offset="100%" stopColor="#8b5cf6" />
-        </linearGradient>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-          <feMerge>
-            <feMergeNode in="coloredBlur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
+    <div className="w-full aspect-[2/1] relative">
+      <svg viewBox="0 0 1000 500" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="worldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#3b82f6" />
+            <stop offset="100%" stopColor="#8b5cf6" />
+          </linearGradient>
+          <filter id="worldGlow">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
 
-      <rect width="800" height="400" fill="transparent" />
+        <rect width="1000" height="500" fill="transparent" />
 
-      <g
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="0.5"
-        className="text-zinc-300 dark:text-zinc-600"
-      >
-        <path d="M400,0 L400,400" />
-        <path d="M0,200 L800,200" />
-        <circle cx="400" cy="200" r="50" />
-        <circle cx="400" cy="200" r="100" />
-        <circle cx="400" cy="200" r="150" />
-      </g>
+        {/* 网格线 */}
+        <g stroke="currentColor" strokeWidth="0.3" opacity="0.2" className="text-zinc-400">
+          <line x1="0" y1="125" x2="1000" y2="125" />
+          <line x1="0" y1="250" x2="1000" y2="250" />
+          <line x1="0" y1="375" x2="1000" y2="375" />
+          <line x1="250" y1="0" x2="250" y2="500" />
+          <line x1="500" y1="0" x2="500" y2="500" />
+          <line x1="750" y1="0" x2="750" y2="500" />
+        </g>
 
-      <g fill="url(#mapGradient)" className="text-blue-500 dark:text-blue-400">
-        <path d="M160,120 Q200,100 240,110 L250,140 Q220,160 180,150 Z" />
-        <path d="M150,150 Q180,180 200,200 L180,230 Q150,210 140,180 Z" />
-        <path d="M200,200 Q250,190 280,210 L290,250 Q260,280 220,270 L200,240 Z" />
+        {/* 北美洲 */}
+        <path
+          d="M120,100 
+             L180,90 L220,95 L260,110 L280,100 L300,115 
+             L295,140 L280,160 L260,180 L240,200 L220,220 
+             L200,240 L180,250 L160,260 L150,280 L140,300 
+             L130,280 L120,260 L110,240 L100,200 L95,160 
+             L100,130 L110,110 Z"
+          fill="url(#worldGradient)"
+          opacity="0.8"
+        />
 
-        <path d="M350,80 Q420,70 480,90 L490,130 Q450,160 390,150 L360,120 Z" />
-        <path d="M380,150 Q430,170 460,200 L450,250 Q400,260 370,240 L360,200 Z" />
+        {/* 南美洲 */}
+        <path
+          d="M220,290 
+             L250,285 L270,295 L280,320 L275,350 L260,380 
+             L240,400 L220,410 L200,400 L190,370 L195,340 
+             L200,310 L210,295 Z"
+          fill="url(#worldGradient)"
+          opacity="0.8"
+        />
 
-        <path d="M520,100 Q600,90 680,110 L700,180 Q660,220 580,210 L530,160 Z" />
+        {/* 欧洲 */}
+        <path
+          d="M440,90 
+             L480,85 L520,90 L540,100 L550,120 L545,140 
+             L530,155 L510,165 L490,170 L470,165 L450,155 
+             L440,140 L435,120 L440,100 Z"
+          fill="url(#worldGradient)"
+          opacity="0.8"
+        />
 
-        <path d="M600,250 Q650,240 700,260 L710,320 Q670,350 620,340 L590,300 Z" />
+        {/* 非洲 */}
+        <path
+          d="M460,180 
+             L500,175 L530,185 L545,210 L550,250 L545,290 
+             L530,330 L510,360 L480,375 L450,365 L435,330 
+             L430,290 L435,250 L445,210 L455,190 Z"
+          fill="url(#worldGradient)"
+          opacity="0.8"
+        />
 
-        <path d="M130,280 Q180,270 220,290 L230,340 Q190,370 140,360 L120,320 Z" />
-      </g>
+        {/* 亚洲 */}
+        <path
+          d="M560,80 
+             L620,75 L680,80 L740,90 L780,85 L820,95 
+             L850,120 L860,160 L850,200 L830,240 L800,270 
+             L760,290 L720,300 L680,295 L640,280 L600,260 
+             L570,230 L550,190 L545,150 L550,110 L555,90 Z"
+          fill="url(#worldGradient)"
+          opacity="0.8"
+        />
 
-      <g filter="url(#glow)">
-        <circle cx="180" cy="160" r="6" fill="#ef4444" className="animate-pulse" />
-        <circle cx="210" cy="180" r="5" fill="#f97316" className="animate-pulse" />
-        <circle cx="420" cy="140" r="6" fill="#ef4444" className="animate-pulse" />
-        <circle cx="620" cy="170" r="5" fill="#f97316" className="animate-pulse" />
-        <circle cx="650" cy="290" r="4" fill="#eab308" className="animate-pulse" />
-      </g>
+        {/* 澳大利亚 */}
+        <path
+          d="M750,320 
+             L800,315 L840,330 L855,360 L845,400 L815,420 
+             L770,415 L740,395 L735,360 L740,335 Z"
+          fill="url(#worldGradient)"
+          opacity="0.8"
+        />
 
-      <g className="text-zinc-400 dark:text-zinc-500" fill="currentColor" fontSize="10">
-        <text x="160" y="195">
-          中国
-        </text>
-        <text x="400" y="175">
-          欧洲
-        </text>
-        <text x="600" y="195">
-          北美
-        </text>
-        <text x="630" y="340">
-          澳洲
-        </text>
-      </g>
-    </svg>
+        {/* 访问热点 - 中国 */}
+        <g filter="url(#worldGlow)">
+          <circle cx="720" cy="180" r="8" fill="#ef4444" className="animate-pulse" />
+          <circle cx="700" cy="200" r="6" fill="#f97316" className="animate-pulse" />
+          <circle cx="740" cy="210" r="5" fill="#fbbf24" className="animate-pulse" />
+        </g>
+
+        {/* 访问热点 - 其他地区 */}
+        <g filter="url(#worldGlow)">
+          <circle cx="500" cy="130" r="5" fill="#22c55e" className="animate-pulse" />
+          <circle cx="200" cy="180" r="5" fill="#3b82f6" className="animate-pulse" />
+          <circle cx="800" cy="380" r="4" fill="#a855f7" className="animate-pulse" />
+        </g>
+
+        {/* 地区标签 */}
+        <g className="text-zinc-500 dark:text-zinc-400" fill="currentColor" fontSize="12">
+          <text x="180" y="200" textAnchor="middle">
+            北美
+          </text>
+          <text x="230" y="360" textAnchor="middle">
+            南美
+          </text>
+          <text x="490" y="135" textAnchor="middle">
+            欧洲
+          </text>
+          <text x="490" y="290" textAnchor="middle">
+            非洲
+          </text>
+          <text x="700" y="250" textAnchor="middle">
+            亚洲
+          </text>
+          <text x="790" y="375" textAnchor="middle">
+            大洋洲
+          </text>
+        </g>
+      </svg>
+
+      {/* 图例 */}
+      <div className="absolute bottom-2 right-2 flex gap-3 text-xs text-zinc-500 dark:text-zinc-400">
+        <span className="flex items-center gap-1">
+          <span className="w-2 h-2 rounded-full bg-red-500"></span>
+          高访问
+        </span>
+        <span className="flex items-center gap-1">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
+          中访问
+        </span>
+        <span className="flex items-center gap-1">
+          <span className="w-2 h-2 rounded-full bg-yellow-500"></span>
+          低访问
+        </span>
+      </div>
+    </div>
   )
 }
