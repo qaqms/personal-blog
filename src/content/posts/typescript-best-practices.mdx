@@ -1,0 +1,47 @@
+---
+title: TypeScript Best Practices
+date: 2026-02-10
+excerpt: Improve your TypeScript code with these essential best practices for better type safety and developer experience.
+tags:
+  - TypeScript
+---
+
+# TypeScript Best Practices
+
+Writing clean, type-safe TypeScript code is essential for maintainable applications.
+
+## Use Strict Mode
+
+Always enable strict mode in your `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "strict": true
+  }
+}
+```
+
+## Prefer Interfaces for Object Types
+
+```typescript
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+```
+
+## Use Type Guards
+
+Type guards help narrow down types at runtime:
+
+```typescript
+function isString(value: unknown): value is string {
+  return typeof value === 'string';
+}
+```
+
+## Conclusion
+
+Following these practices will make your TypeScript code more robust and easier to maintain.

@@ -1,0 +1,12 @@
+{
+  "name": "QAQ Blog",
+  "title": "QAQ Personal Blog",
+  "description": "A personal blog sharing stories about programming, technology, and life",
+  "author": "QAQ",
+  "email": "hello@example.com",
+  "social": {
+    "github": "https://github.com/qaqms",
+    "twitter": "https://twitter.com",
+    "bilibili": "https://space.bilibili.com"
+  }
+}

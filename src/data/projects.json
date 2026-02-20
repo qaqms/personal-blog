@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Personal Blog",
+    "description": "A modern personal blog built with Next.js 14, TypeScript, and Tailwind CSS. Features include MDX support, dark mode, and responsive design.",
+    "image": "/next.svg",
+    "tags": ["Next.js", "TypeScript", "Tailwind"],
+    "link": "https://github.com/qaqms/personal-blog",
+    "demo": "https://example.com"
+  },
+  {
+    "id": 2,
+    "title": "E-Commerce Platform",
+    "description": "A full-stack e-commerce solution with product management, shopping cart, and payment integration.",
+    "image": "/next.svg",
+    "tags": ["React", "Node.js", "MongoDB"],
+    "link": "https://github.com",
+    "demo": null
+  },
+  {
+    "id": 3,
+    "title": "Task Management App",
+    "description": "A productivity application for managing tasks and projects with real-time collaboration features.",
+    "image": "/next.svg",
+    "tags": ["React", "Firebase", "Tailwind"],
+    "link": "https://github.com",
+    "demo": "https://example.com"
+  }
+]
