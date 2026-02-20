@@ -28,55 +28,100 @@ export function OrbitingCircles({
 }: OrbitingCirclesProps) {
   const calculatedDuration = duration / speed
   const childrenArray = React.Children.toArray(children)
+  const totalChildren = childrenArray.length
 
   return (
     <>
       <div className={cn('absolute flex items-center justify-center', className)}>
         {path && (
-          <div
-            className="absolute rounded-full border border-zinc-300/50 dark:border-zinc-700/50"
-            style={{
-              width: radius * 2,
-              height: radius * 2,
-            }}
-          />
+          <svg
+            className="absolute"
+            width={radius * 2 + 60}
+            height={radius * 2 + 60}
+            viewBox={`0 0 ${radius * 2 + 60} ${radius * 2 + 60}`}
+          >
+            <circle
+              cx={radius + 30}
+              cy={radius + 30}
+              r={radius}
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1"
+              strokeDasharray="4 4"
+              className="text-zinc-300 dark:text-zinc-700"
+            />
+          </svg>
         )}
 
         {childrenArray.map((child, index) => {
-          const delayInSeconds = (delay / childrenArray.length) * index
+          const delayInSeconds = (delay / totalChildren) * index
 
           return (
             <div
               key={index}
-              className="absolute flex items-center justify-center orbit-item"
-              style={
-                {
+              className="orbit-container"
+              style={{
+                position: 'absolute',
+                width: radius * 2,
+                height: radius * 2,
+                animation: `${reverse ? 'orbit-reverse' : 'orbit'} ${calculatedDuration}s linear infinite`,
+                animationDelay: `-${delayInSeconds}s`,
+              }}
+            >
+              <div
+                className="absolute flex items-center justify-center"
+                style={{
                   width: iconSize,
                   height: iconSize,
-                  animationDuration: `${calculatedDuration}s`,
-                  animationDelay: `${delayInSeconds}s`,
-                  animationDirection: reverse ? 'reverse' : 'normal',
-                  '--orbit-radius': `${radius}px`,
-                } as React.CSSProperties
-              }
-            >
-              {child}
+                  left: radius - iconSize / 2,
+                  top: -iconSize / 2,
+                  transformOrigin: `${iconSize / 2}px ${radius + iconSize / 2}px`,
+                  animation: `${reverse ? 'counter-rotate-reverse' : 'counter-rotate'} ${calculatedDuration}s linear infinite`,
+                  animationDelay: `-${delayInSeconds}s`,
+                }}
+              >
+                {child}
+              </div>
             </div>
           )
         })}
       </div>
 
       <style jsx global>{`
-        .orbit-item {
-          animation: orbit linear infinite;
-        }
         @keyframes orbit {
           from {
-            transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg);
+            transform: rotate(0deg);
           }
           to {
-            transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
+            transform: rotate(360deg);
           }
+        }
+        @keyframes orbit-reverse {
+          from {
+            transform: rotate(360deg);
+          }
+          to {
+            transform: rotate(0deg);
+          }
+        }
+        @keyframes counter-rotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(-360deg);
+          }
+        }
+        @keyframes counter-rotate-reverse {
+          from {
+            transform: rotate(-360deg);
+          }
+          to {
+            transform: rotate(0deg);
+          }
+        }
+        .orbit-container {
+          pointer-events: none;
         }
       `}</style>
     </>
